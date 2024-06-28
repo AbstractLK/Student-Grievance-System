@@ -1,5 +1,5 @@
 const userDB = require('../../data/user.db');
-const token = require('./generateToken');
+// const token = require('./generateToken');
 
 async function registerUser(req, res) {
     const data = req.body;
@@ -7,11 +7,13 @@ async function registerUser(req, res) {
     if (isExist) {
         console.log('Already registered');
         res.send(!isExist);
+        // res.send(data);
     }else {
         try {
             const savedUser = await userDB.insert(data);
-            const accessToken = await token.generateAccessToken(savedUser._id, data.name, data.email, data.role, '2h');
-            res.status(200).json({accessToken: accessToken, name: data.name, role:data.role});
+            // const accessToken = await token.generateAccessToken(savedUser._id, data.name, data.email, data.role, '2h');
+            // res.status(200).json({accessToken: accessToken, name: data.name, role:data.role});
+            res.status(200).json({message: 'User created successfully', data: data});
             console.log('User created successfully');
         } catch (error) {
             console.log(error+' ');
