@@ -53,7 +53,7 @@ export default {
 
   methods: {
     async callRestAPI(role) {
-      this.$refs.form.validate();
+      await this.$refs.form.validate();
       if (this.valid) {
         this.user.role = role;
         await axios.post('http://localhost:3001/auth/registration', this.user)
@@ -72,7 +72,7 @@ export default {
             // Handle error response
           });
       } else {
-        alert("Please fix the errors in the form");
+        alert("Please Enter Valid Data");
       }
     }
   }

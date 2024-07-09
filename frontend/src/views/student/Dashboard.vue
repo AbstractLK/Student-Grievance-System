@@ -42,17 +42,16 @@ export default {
 </script>
 
 <template>
+  <div class="ml-5 mt-5 mb-2 text-h5">Student Dashboard</div>
 
   <v-row align="center" justify="center" dense>
     <v-col cols="12" md="4">
       <v-card
         class="mx-5 mt-5 bg-red-accent-2"
-        href="https://github.com/vuetifyjs/vuetify/"
         max-width="344"
         prepend-icon="mdi-file-chart-outline"
         rel="noopener"
         subtitle="12 Complaints not Process yet"
-        target="_blank"
         title="12"
       ></v-card>
     </v-col>
@@ -60,12 +59,10 @@ export default {
     <v-col cols="12" md="4">
       <v-card
         class="mx-5 mt-5 bg-amber-accent-2"
-        href="https://github.com/vuetifyjs/vuetify/"
         max-width="344"
         prepend-icon="mdi-file-chart-outline"
         rel="noopener"
         subtitle="4 Complaints Status in process"
-        target="_blank"
         title="4"
       ></v-card>
     </v-col>
@@ -73,18 +70,16 @@ export default {
     <v-col cols="12" md="4">
       <v-card
         class="mx-5 mt-5 bg-green-accent-3"
-        href="https://github.com/vuetifyjs/vuetify/"
         max-width="344"
         prepend-icon="mdi-file-chart-outline"
         rel="noopener"
         subtitle="4 Complaint has been closed"
-        target="_blank"
         title="4"
       ></v-card>
     </v-col>
   </v-row>
 
-  <div class="text-center mt-10 mb-5" style="font-size: 22px">Complain details</div>
+  <div class="text-center mt-10 mb-5" style="font-size: 22px">Complaint Details</div>
   <v-table
     class="mx-5"
     height="330px"

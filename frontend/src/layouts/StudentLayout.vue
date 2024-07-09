@@ -12,31 +12,35 @@ const items = ref([
     to: "/student/dashboard"
   },
   {
-    title: 'Team',
-    prependIcon: 'mdi-account-group',
-    link: true,
-    value: "Messages",
-    to: "/student/messages"
-  },
-  {
-    title: 'Projects',
-    prependIcon: 'mdi-briefcase-outline',
-    link: true,
-    value: "Classes",
-    to: "/student/classes"
-  },
-  {
-    title: 'Calendar',
-    prependIcon: 'mdi-calendar',
-    link: true,
-  },
-  {
-    title: 'Reports',
+    title: 'Lodge Complaint',
     prependIcon: 'mdi-file-chart-outline',
     link: true,
-    value: "Reports",
-    to: "/student/reports"
+    value: "register-complaint",
+    to: "/student/register-complaint"
   },
+  {
+    title: 'Complain History ',
+    prependIcon: 'mdi-calendar',
+    link: true,
+    value: "complaint-history",
+    to: "/student/complaint-history"
+  },
+  // {
+  //   title: 'Team',
+  //   prependIcon: 'mdi-account-group',
+  //   link: true,
+  //   value: "Messages",
+  //   to: "/student/messages"
+  // },
+  // {
+  //   title: 'Projects',
+  //   prependIcon: 'mdi-briefcase-outline',
+  //   link: true,
+  //   value: "Classes",
+  //   to: "/student/classes"
+  // },
+
+
 ])
 </script>
 
@@ -52,6 +56,7 @@ const items = ref([
           nav
           prepend-icon="mdi-cog-outline"
           title="Settings"
+          to="/student/change-password"
         />
       </template>
     </v-navigation-drawer>
@@ -61,7 +66,7 @@ const items = ref([
     <v-app-bar border="b" class="ps-4" flat>
       <v-app-bar-nav-icon v-if="$vuetify.display.smAndDown" @click="drawer = !drawer" />
 
-      <h1 class="ma-5" style="font-size: 28px" >Student Grievance System</h1>
+      <h1 class="ma-5 text-uppercase" style="font-size: 28px" >Student Grievance System</h1>
       <!--      <h2 class="ma-5" style="font-size: " >Student Grievance System</h2>-->
       <!--      <v-app-bar-title>Student Grievance System</v-app-bar-title>-->
 
@@ -71,7 +76,7 @@ const items = ref([
 
           <v-menu activator="parent">
             <v-list density="compact" nav>
-              <v-list-item append-icon="mdi-cog-outline" link title="Settings" />
+              <v-list-item append-icon="mdi-cog-outline" link title="Settings" value="settings" to="/student/change-password" />
 
               <v-list-item append-icon="mdi-logout" link title="Logout" value="Logout" to="/auth/" />
             </v-list>

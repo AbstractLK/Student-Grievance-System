@@ -12,7 +12,7 @@ async function login(req, res) {
     const user = await userDB.searchByEmail(email);
     //console.log(user);
     if(user && await bcrypt.compare(pass, user.password)){
-        const accessToken = await token.generateAccessToken(user._id, user.name, email, user.role, "2h");
+        const accessToken = await token.generateAccessToken(user._id, user.name, email, user.role, '2h');
         return res.status(200).json({accessToken:accessToken, name:user.name, role:user.role});
     }
     return res.send("Invalid Email or Password!");

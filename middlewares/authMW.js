@@ -6,7 +6,7 @@ const verifyToken = (req, res, next)=>{
     }
     try {
         req.user = jwt.verify(token, process.env.JWT_SECURITY_KEY);
-        console.log(req.user);
+        // console.log(req.user);
     }catch (e) {
         return res.status(401).send("invalid access token!");
     }

@@ -2,6 +2,7 @@
 //import login from '@/services/AuthService';
 import axios from "axios";
 import router from "@/router";
+// import {getCookie} from "../../utils/cookieUtils";
 
 
 export default {
@@ -12,23 +13,24 @@ export default {
     credential: {
       email: '',
       pass:""
-    }
+    },
+    checkCookieInterval: null
 
   }),
   methods: {
     async logicAct() {
       await axios.post('http://localhost:3001/auth', this.credential)
         .then(async response => {
-          //console.log(response);
+          // console.log(response.data.accessToken);
           if (response.data=="Invalid Email or Password!") {
             alert(response.data);
           } else if (response.data=="All inputs are required!") {
             alert(response.data);
           }else {
             await this.addToCookie(response.data.accessToken);
-            //console.log(response);
+            // console.log(response);
             // alert("Successfully login");
-            if (response.data.role=="teacher") await router.push('/tutor');
+            if (response.data.role=="teacher") await router.push('/admin');
             if (response.data.role=="student") await router.push('/student');
           }
 
@@ -41,20 +43,25 @@ export default {
       //console.log(this.credential);
     },
 
-    addToCookie(jwtToken){
+    // addToCookie(jwtToken){
+    //   const expirationTime = new Date();
+    //   expirationTime.setTime(expirationTime.getTime() + (1000)); // 1 hour expiration
+    //   const cookieValue = `jwt=${jwtToken}; Secure; SameSite=Strict; Expires=${expirationTime.toUTCString()}`;
+    //   document.cookie = cookieValue;
+    // }
+
+    addToCookie(jwtToken) {
       const expirationTime = new Date();
-      expirationTime.setTime(expirationTime.getTime() + (1000));
-      const cookieValue = `jwt=${jwtToken};
-            HttpOnly;
-            Secure;
-            SameSite=Strict;
-            Expires=${expirationTime.toUTCString()}`;
+      expirationTime.setTime(expirationTime.getTime() + (1000 * 60 * 60 * 2)); // 1 hour expiration
+      const cookieValue = `jwt=${jwtToken}; SameSite=Strict; Expires=${expirationTime.toUTCString()}; Path=/`;
       document.cookie = cookieValue;
-    }
 
-  }
-
-
+      // Set timeout to show alert after 1 minute
+      // setTimeout(() => {
+      //   alert("Your session has expired. Please log in again.");
+      // }, 1000 * 60); // 1 minute in milliseconds
+    },
+  },
 }
 </script>
 

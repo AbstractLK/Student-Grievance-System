@@ -2,6 +2,8 @@
 
 import axios from "axios";
 import Titles from "@/components/Titles.vue";
+import { getCookie } from '/utils/cookieUtils';
+// import router from "@/router";
 
 export default {
   name: "Students",
@@ -15,22 +17,11 @@ export default {
   },
   methods:{
 
-    getCookie(name) {
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.startsWith(name + '=')) {
-          return cookie.substring(name.length + 1);
-        }
-      }
-      return null;
-    },
-
     async getAll() {
       try {
         const response = await axios.get('http://localhost:3001/auth/getAll')
         this.users = response.data.filter(user => user.role === "student");
-        //console.log(this.users);
+        console.log(this.users);
       }catch (error) {
         console.error(error);
         // Handle error response
@@ -63,11 +54,28 @@ export default {
       }catch (e) {
         console.error(e);
       }
-    }
+    },
+
+    // verifyCookie() {
+    //   const jwt = getCookie('jwt');
+    //   if (!jwt) {
+    //     clearInterval(this.checkCookieInterval);
+    //     alert("Your session has expired. Please log in again.");
+    //     router.push('/auth');
+    //   }
+    // },
+
+    // startCookieCheck() {
+    //   this.checkCookieInterval = setInterval(() => {
+    //     this.verifyCookie();
+    //   }, 1000); // Check every second
+    // }
   },
+
   mounted() {
+    // this.startCookieCheck();
     // Get the JWT from the cookie named 'jwt'
-    const jwtToken = this.getCookie('jwt');
+    const jwtToken = getCookie('jwt');
     if (jwtToken) {
       axios.defaults.headers.common['x-access-token'] = jwtToken;
     } else {
@@ -75,7 +83,13 @@ export default {
     }
 
     this.getAll();
-  }
+  },
+
+  // beforeUnmount() {
+  //   if (this.checkCookieInterval) {
+  //
+  //   }
+  // }
 }
 </script>
 
