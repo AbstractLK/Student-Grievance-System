@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon index.js",
-    "client": "npm run dev --prefix frontend",
+     "client": "npm run dev --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "kaveesha",
@@ -24,5 +24,8 @@
     "vue": "^3.4.31",
     "vue-router": "^4.4.0",
     "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }

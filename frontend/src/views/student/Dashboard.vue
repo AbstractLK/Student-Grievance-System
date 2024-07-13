@@ -1,12 +1,16 @@
 <script>
 
-import Titles from "@/components/Titles.vue";
+// import Titles from "@/components/Titles.vue";
+import axios from "axios";
+import {tokenAttach} from "../../../utils/tokenAttach";
 
 export default {
   name: "Dashboard",
-  components: {Titles},
+  // components: {Titles},
   data () {
     return {
+      complaints: null,
+
       complains: [
         {
           number: 1,
@@ -37,6 +41,24 @@ export default {
       ],
     }
   },
+
+  methods: {
+    async getComplaint() {
+      try {
+        const response = await axios.get('http://localhost:3001/complaint/getAllComplaint');
+        this.complaints = response.data;
+        // console.log(response.data);
+      } catch (error) {
+        console.error(error);
+        // Handle error response
+      }
+    },
+  },
+
+  mounted() {
+    tokenAttach();
+    this.getComplaint();
+  }
 }
 
 </script>
@@ -100,10 +122,10 @@ export default {
     </thead>
     <tbody>
     <tr
-      v-for="item in complains"
-      :key="item.number"
+      v-for="item in complaints"
+      :key="item._id"
     >
-      <td>{{ item.number }}</td>
+      <td>{{ item._id }}</td>
       <td>{{ item.status }}</td>
       <td>{{ item.remark }}</td>
     </tr>

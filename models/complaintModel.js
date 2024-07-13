@@ -2,11 +2,13 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const complaintSchema = new Schema({
-    complainantName: {
+    complainantEmail: {
         type: String,
         required: true
     },
-
+    remark: {
+        type: String,
+    },
     category1: {
         type: String,
         // enum: ['Department Level', 'Faculty Level', 'Institution Level'], // Example categories
@@ -33,7 +35,7 @@ const complaintSchema = new Schema({
     },
     anonymous: {
         type: String,
-        // enum: ['anonymous', 'not anonymous'],
+        enum: ['anonymous', 'not anonymous'],
         required: true,
     },
     createdAt: {

@@ -1,12 +1,15 @@
 <script>
 
-import Titles from "@/components/Titles.vue";
+// import Titles from "@/components/Titles.vue";
+
+import axios from "axios";
 
 export default {
   name: "notProcessComplaint",
-  components: {Titles},
+  // components: {Titles},
   data () {
     return {
+      complaints: {},
       complains: [
         {
           number: 1,
@@ -52,6 +55,22 @@ export default {
       ],
     }
   },
+
+  methods: {
+    async fetchNotProcessedComplaints() {
+      try {
+        const response = await axios.get('http://localhost:3001/complaint/notProcessedComplaint');
+        // this.complaints = response.data;
+        console.log(response);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  },
+
+  mounted() {
+    this.fetchNotProcessedComplaints();
+  }
 }
 </script>
 

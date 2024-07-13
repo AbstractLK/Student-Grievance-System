@@ -2,7 +2,8 @@
 
 import axios from "axios";
 import Titles from "@/components/Titles.vue";
-import { getCookie } from '/utils/cookieUtils';
+// import { getCookie } from '/utils/cookieUtils';
+import {tokenAttach} from "/utils/tokenAttach";
 // import router from "@/router";
 
 export default {
@@ -21,7 +22,7 @@ export default {
       try {
         const response = await axios.get('http://localhost:3001/auth/getAll')
         this.users = response.data.filter(user => user.role === "student");
-        console.log(this.users);
+        // console.log(this.users);
       }catch (error) {
         console.error(error);
         // Handle error response
@@ -74,14 +75,8 @@ export default {
 
   mounted() {
     // this.startCookieCheck();
-    // Get the JWT from the cookie named 'jwt'
-    const jwtToken = getCookie('jwt');
-    if (jwtToken) {
-      axios.defaults.headers.common['x-access-token'] = jwtToken;
-    } else {
-      console.log('JWT not found in cookies');
-    }
 
+    tokenAttach();
     this.getAll();
   },
 

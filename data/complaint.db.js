@@ -1,7 +1,9 @@
 const complaintModel = require('../models/complaintModel')
-async function insertComplaint(data) {
+async function insertComplaint(data, user) {
+    console.log(data);
     const complaint = {
-        complainantName: 'kaveesha',
+        complainantEmail: user.email,
+        remark: '',
         category1: data.category1,
         department: data.department,
         type: data.type,

@@ -1,6 +1,6 @@
 <script>
 
-import Titles from "@/components/Titles.vue";
+// import Titles from "@/components/Titles.vue";
 import axios from "axios";
 // import router from "@/router";
 import {getCookie} from "../../../utils/cookieUtils";
@@ -8,7 +8,7 @@ import {getCookie} from "../../../utils/cookieUtils";
 
 export default {
   name: "RegisterComplaint",
-  components: {Titles},
+  // components: {Titles},
   data:() => ({
 
     complaint:{
@@ -16,8 +16,8 @@ export default {
       department: null,
       type: null,
       year: [ ],
-      complaintDescription: '',
-      anonymous: '',
+      complaintDescription: null,
+      anonymous: 'not anonymous',
     },
 
     cat1: [
@@ -49,7 +49,7 @@ export default {
     async submitComplaint() {
 
       // alert('complaint');
-      await axios.post('http://localhost:3001/user/submit-complaint', this.complaint)
+      await axios.post('http://localhost:3001/complaint/submit-complaint', this.complaint)
         .then(response => {
           console.log(response.data);
           if (response.data) {
@@ -64,6 +64,7 @@ export default {
           console.error(error);
           // Handle error response
         });
+      // location.reload();
     },
   },
 

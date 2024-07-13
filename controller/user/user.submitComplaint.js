@@ -12,7 +12,7 @@ async function submitComplaint(req, res) {
         req.user = jwt.verify(token, process.env.JWT_SECURITY_KEY);
         // console.log(req.body);
         // res.status(200).json({message: 'kay', data: req.body});
-        const savedComplaint = await complaintDB.insertComplaint(data);
+        const savedComplaint = await complaintDB.insertComplaint(data, req.user);
         res.status(200).json({message: 'kay', data: savedComplaint});
     } catch (e) {
         return res.status(400).send("Fail to insert the complaint!");
