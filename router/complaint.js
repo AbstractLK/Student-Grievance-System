@@ -7,6 +7,9 @@ router.post('/submit-complaint', complaintController.submitComplaint);
 router.get('/getAllComplaint', complaintController.getAllComplaint);
 router.get('/getOneComplaint/:id', complaintController.getOneComplaint);
 router.get('/notProcessedComplaint', complaintController.notProcessedComplaint);
+router.get('/inProcessedComplaint', complaintController.inProcessedComplaint);
+router.get('/closedComplaint', complaintController.closedComplaint);
+router.put('/update-complaint/:id',complaintController.updateComplaint);
 
 // router.get('/getStudentComplaint', (req, res) => {
 //     res.send('User complaint!');

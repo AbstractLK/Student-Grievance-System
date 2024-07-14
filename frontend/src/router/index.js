@@ -107,8 +107,9 @@ const routes = [
         component: () => import("@/views/admin/Closed-complaint.vue"),
       },
       {
-        path: "complaint-details",
+        path: "complaint-details/:id",
         component: () => import("@/views/complaint-details.vue"),
+        props: true,
       },
       {
         path: "change-password",

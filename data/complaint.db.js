@@ -10,8 +10,7 @@ async function insertComplaint(data, user) {
         year: data.year,
         complaintDescription: data.complaintDescription,
         anonymous: data.anonymous,
-        status: 'not process',
-        remainingDate: '15 Days'
+        status: 'not process'
     };
 
     const savedComplaint = await complaintModel.create(complaint);

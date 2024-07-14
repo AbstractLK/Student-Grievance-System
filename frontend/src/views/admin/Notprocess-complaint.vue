@@ -3,6 +3,7 @@
 // import Titles from "@/components/Titles.vue";
 
 import axios from "axios";
+import {formatDate} from "../../../utils/formatDate";
 
 export default {
   name: "notProcessComplaint",
@@ -10,58 +11,59 @@ export default {
   data () {
     return {
       complaints: {},
-      complains: [
-        {
-          number: 1,
-          name: 'Amila',
-          regDate: '2024-06-30',
-          remainDays: '15 days left',
-          status: 'Not process yet',
-          action: 'View Details'
-        },
-        {
-          number: 2,
-          name: 'Amila',
-          regDate: '2024-06-30',
-          remainDays: '15 days left',
-          status: 'Not process yet',
-          action: 'View Details'
-        },
-        {
-          number: 3,
-          name: 'Amila',
-          regDate: '2024-06-30',
-          remainDays: '15 days left',
-          status: 'Not process yet',
-          action: 'View Details'
-        },
-        {
-          number: 4,
-          name: 'Amila',
-          regDate: '2024-06-30',
-          remainDays: '15 days left',
-          status: 'Not process yet',
-          action: 'View Details'
-        },
-        {
-          number: 5,
-          name: 'Amila',
-          regDate: '2024-06-30',
-          remainDays: '15 days left',
-          status: 'Not process yet',
-          action: 'View Details'
-        },
-
-      ],
+      // complains: [
+      //   {
+      //     number: 1,
+      //     name: 'Amila',
+      //     regDate: '2024-06-30',
+      //     remainDays: '15 days left',
+      //     status: 'Not process yet',
+      //     action: 'View Details'
+      //   },
+      //   {
+      //     number: 2,
+      //     name: 'Amila',
+      //     regDate: '2024-06-30',
+      //     remainDays: '15 days left',
+      //     status: 'Not process yet',
+      //     action: 'View Details'
+      //   },
+      //   {
+      //     number: 3,
+      //     name: 'Amila',
+      //     regDate: '2024-06-30',
+      //     remainDays: '15 days left',
+      //     status: 'Not process yet',
+      //     action: 'View Details'
+      //   },
+      //   {
+      //     number: 4,
+      //     name: 'Amila',
+      //     regDate: '2024-06-30',
+      //     remainDays: '15 days left',
+      //     status: 'Not process yet',
+      //     action: 'View Details'
+      //   },
+      //   {
+      //     number: 5,
+      //     name: 'Amila',
+      //     regDate: '2024-06-30',
+      //     remainDays: '15 days left',
+      //     status: 'Not process yet',
+      //     action: 'View Details'
+      //   },
+      //
+      // ],
     }
   },
 
   methods: {
+    formatDate,
     async fetchNotProcessedComplaints() {
       try {
         const response = await axios.get('http://localhost:3001/complaint/notProcessedComplaint');
-        // this.complaints = response.data;
-        console.log(response);
+        this.complaints = response.data;
+        // console.log(response.data);
       } catch (error) {
         console.error(error);
       }
@@ -80,7 +82,7 @@ export default {
   <div class="ml-5 mt-5 mb-2 text-h5">Not Process Complaint</div>
   <v-table
     class="mx-5"
-    height="330px"
+    height="430px"
     fixed-header
   >
     <thead>
@@ -89,7 +91,7 @@ export default {
         Complain No
       </th>
       <th class="text-left font-weight-black">
-        Complainant name
+        Complainant Email
       </th>
       <th class="text-left font-weight-black">
         Reg Date
@@ -107,15 +109,15 @@ export default {
     </thead>
     <tbody>
     <tr
-      v-for="item in complains"
-      :key="item.number"
+      v-for="item in complaints"
+      :key="item._id"
     >
-      <td>{{ item.number }}</td>
-      <td>{{ item.name }}</td>
-      <td>{{ item.regDate }}</td>
+      <td>{{ item._id }}</td>
+      <td>{{ item.anonymous === 'anonymous' ? 'Anonymous' : item.complainantEmail }}</td>
+      <td>{{ formatDate(item.createdAt) }}</td>
       <td><v-btn size="small" color="red-lighten-1" variant="flat">{{ item.status }}</v-btn></td>
-      <td><v-btn size="small" to="/admin/complaint-details">{{ item.action }}</v-btn></td>
-      <td>{{ item.remainDays }}</td>
+      <td><v-btn size="small" :to="`complaint-details/${item._id}`">View Details</v-btn></td>
+      <td>{{ item.remainingDays }}</td>
     </tr>
     </tbody>
   </v-table>
