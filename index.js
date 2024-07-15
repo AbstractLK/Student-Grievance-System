@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 require('./config/database').connect();
+require('./jobs/scheduler');
 
 const authRoute = require('./router/auth');
 const userRoute = require('./router/users');

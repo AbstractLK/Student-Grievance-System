@@ -112,7 +112,7 @@ export default {
       <td>{{ formatDate(item.createdAt) }}</td>
       <td><v-btn size="small" color="green-lighten-1" variant="flat">{{ item.status }}</v-btn></td>
       <td><v-btn size="small" :to="`complaint-details/${item._id}`">View Details</v-btn></td>
-      <td>{{ item.remainingDays }}</td>
+      <td>{{ item.remainingDays }} Days</td>
     </tr>
     </tbody>
   </v-table>

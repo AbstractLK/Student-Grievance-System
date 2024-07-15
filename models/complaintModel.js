@@ -52,8 +52,8 @@ const complaintSchema = new Schema({
         default: 'not process'
     },
     remainingDays: {
-        type: String,
-        default: '15 Days'
+        type: Number,
+        default: 15
     }
 });
 
