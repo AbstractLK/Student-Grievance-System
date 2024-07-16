@@ -3,6 +3,7 @@ const registration = require('./user.registration');
 const userDelete = require('./user.delete');
 const update = require('./user.update');
 const login = require('./user.login');
+const changePass = require('./user.changePass');
 
 module.exports = {
     getAll,
@@ -10,4 +11,5 @@ module.exports = {
     userDelete,
     update,
     login,
+    changePass
 }

@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const userController = require('../controller/user');
 // const complaintController = require('../controller/complaint')
-// const userController = require('../controller/user');
 // const jwt = require("jsonwebtoken");
 
+
+router.put('/change-password', userController.changePass);
 
 //post method
 // router.get('/dashboard',(req,res)=>{

@@ -1,5 +1,8 @@
 <script>
 
+import axios from "axios";
+import {tokenAttach} from "../../utils/tokenAttach";
+
 export default {
   name: "ChangePass",
   data () {
@@ -23,9 +26,19 @@ export default {
         this.changePassword();
       } else alert('not valid');
     },
-    changePassword() {
-      // Logic to change the password
-      alert('Password changed successfully!');
+    async changePassword() {
+      tokenAttach(); // Attach token to axios request
+      try {
+        const response = await axios.put('http://localhost:3001/user/change-password', {
+          currentPass: this.currentPass,
+          newPass: this.newPass
+        });
+        console.log(response);
+        alert(response.data);
+      } catch (error) {
+        console.error(error);
+        alert('Failed to change password');
+      }
     }
   }
 }
