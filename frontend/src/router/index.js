@@ -35,7 +35,15 @@ const routes = [
       },
       {
         path: "reset",
-        component: () => import("@/views/ResetPass.vue"),
+        component: () => import("@/views/ResetStep1.vue"),
+      },
+      {
+        path: "verify-code",
+        component: () => import("@/views/ResetStep2.vue"),
+      },
+      {
+        path: "reset-password",
+        component: () => import("@/views/ResetStep3.vue"),
       },
     ],
   },
@@ -136,7 +144,7 @@ function isTokenValid(token) {
 
 // Navigation guard to check for JWT token
 router.beforeEach((to, from, next) => {
-  const publicPages = ["/", "/auth", "/auth/register", "/auth/reset"];
+  const publicPages = ["/", "/auth", "/auth/register", "/auth/reset", "/auth/verify-code", "/auth/reset-password"];
   const authRequired = !publicPages.includes(to.path);
   const token = getCookie("jwt");
 

@@ -24,6 +24,7 @@ app.use('/auth', authRoute);
 app.use('/user', userRoute);
 app.use('/task', taskRoute);
 app.use('/complaint', complaintRoute);
+app.use('/reset-password', userRoute);
 
 app.listen(process.env.APP_PORT,()=>{
     console.log(process.env.APP_NAME + ' started at port 3001');
