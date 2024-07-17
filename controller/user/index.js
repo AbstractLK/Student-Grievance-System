@@ -6,6 +6,7 @@ const login = require('./user.login');
 const changePass = require('./user.changePass');
 const userSendCode = require('./user.sendCode');
 const verifyCode = require('./user.verifyCode');
+const userResetPass = require('./user.resetPass');
 
 module.exports = {
     getAll,
@@ -15,5 +16,6 @@ module.exports = {
     login,
     changePass,
     userSendCode,
-    verifyCode
+    verifyCode,
+    userResetPass
 }

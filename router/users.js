@@ -8,7 +8,7 @@ const userController = require('../controller/user');
 router.put('/change-password', userController.changePass);
 router.post('/send-code', userController.userSendCode);
 router.post('/verify-code', userController.verifyCode);
-// router.post('/reset', userController.verifyCode);
+router.post('/reset', userController.userResetPass);
 
 //post method
 // router.get('/dashboard',(req,res)=>{
