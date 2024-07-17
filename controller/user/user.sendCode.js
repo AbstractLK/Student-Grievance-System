@@ -1,6 +1,6 @@
 const userModel = require("../../models/User");
 const {sendCode} = require("../../util/emailUtils");
-const codes = require('../../util/globalVariables');
+const codeStorage = require("../../util/codeStorage");
 
 async function userSendCode(req, res) {
     const {email} = req.body;
@@ -11,7 +11,7 @@ async function userSendCode(req, res) {
     }
 
     const code = Math.floor(100000 + Math.random() * 900000); // Generate a 6-digit code
-    codes[email] = code;
+    codeStorage.setCode(email, code);
 
     await sendCode(email, code);
     res.send('Code sent');
