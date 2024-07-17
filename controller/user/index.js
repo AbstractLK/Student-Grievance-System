@@ -5,6 +5,7 @@ const update = require('./user.update');
 const login = require('./user.login');
 const changePass = require('./user.changePass');
 const userSendCode = require('./user.sendCode');
+const verifyCode = require('./user.verifyCode');
 
 module.exports = {
     getAll,
@@ -13,5 +14,6 @@ module.exports = {
     update,
     login,
     changePass,
-    userSendCode
+    userSendCode,
+    verifyCode
 }
