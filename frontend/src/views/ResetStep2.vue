@@ -4,7 +4,7 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      email: this.$route.query.email,
+      email: this.$route.query.email || '',
       code: '',
       valid: false,
       timer: 60,
@@ -27,7 +27,7 @@ export default {
     async verifyCode() {
       try {
         await axios.post('http://localhost:3001/reset-password/verify-code', { email: this.email, code: this.code });
-        this.$router.push('reset-password');
+        this.$router.push({ path: 'reset-password', query: { email: this.email } });
         // alert('code valid');
         // console.log(this.email);
       } catch (error) {
