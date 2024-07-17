@@ -14,6 +14,8 @@ async function userSendCode(req, res) {
     codeStorage.setCode(email, code);
 
     await sendCode(email, code);
+    // console.log(`Code set for ${email}: ${code}`);
+    // console.log(codeStorage.getCode(email));
     res.send('Code sent');
 }
 

@@ -9,7 +9,8 @@ export default {
       valid: false,
       timer: 60,
       rules: {
-        required: value => !!value || 'Required.'
+        required: value => !!value || 'Required.',
+        minLength: v => v.length >= 6 || 'Required 6 character',
       }
     };
   },
@@ -76,15 +77,15 @@ export default {
       <v-sheet class="mb-16" >
         <v-card elevation="12" rounded="lg" class="mx-auto pa-12 pt-8 " max-width="450" >
           <div class="mb-12 text-center" style="color: #525252; ">
-            <h2 class="text-blue-grey">Reset Password - Step 2</h2>
-<!--            <h5>Sign in to Continue</h5>-->
+            <h2 class="text-blue-grey">Email Verification</h2>
+            <h5 style="font-size: 11px; font-weight: 500; color: gray; padding-top: 7px">We have sent a code to your email {{this.email}}</h5>
           </div>
 
           <v-form v-model="valid">
             <v-text-field
               v-model="code"
               label="Verification Code"
-              :rules="[rules.required]"
+              :rules="[rules.required, rules.minLength]"
               density="comfortable"
               class="mb-2"
               clearable

@@ -56,7 +56,7 @@ export default {
       <v-sheet class="mb-16" >
         <v-card elevation="12" rounded="lg" class="mx-auto pa-12 pt-8 " max-width="450" >
           <div class="mb-12 text-center" style="color: #525252; ">
-            <h2 class="text-blue-grey">Reset Password - Step 3</h2>
+            <h2 class="text-blue-grey">Enter New Password</h2>
 <!--            <h5>Sign in to Continue</h5>-->
           </div>
 
