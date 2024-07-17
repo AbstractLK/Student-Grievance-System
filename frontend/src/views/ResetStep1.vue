@@ -16,8 +16,7 @@ export default {
     async sendCode() {
       try {
         await axios.post('http://localhost:3001/reset-password/send-code', { email: this.email });
-
-        this.$router.push('verify-code');
+        this.$router.push({ path: 'verify-code', query: { email: this.email } });
       } catch (error) {
         alert('Email not found!');
       }
