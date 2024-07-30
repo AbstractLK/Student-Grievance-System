@@ -2,7 +2,7 @@ const cron = require('node-cron');
 const complaintModel = require('../models/complaintModel');
 
 // Schedule a job to run every day at midnight
-cron.schedule('53 23 * * *', async () => {
+cron.schedule('07 12 * * *', async () => {
     try {
         console.log('Running daily job to update remaining days');
         const complaints = await complaintModel.find();

@@ -27,7 +27,7 @@
     </div>
 
     <div class="px-4 py-2 bg-blue-grey text-center w-100">
-      {{ new Date().getFullYear() }} — All Right Reserved
+      <lable style="font-size: small">{{ new Date().getFullYear() }} — All Right Reserved</lable>
     </div>
   </v-footer>
 </template>

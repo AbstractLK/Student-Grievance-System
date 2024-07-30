@@ -4,6 +4,8 @@
 
 import axios from "axios";
 import {formatDate} from "../../../utils/formatDate";
+import {getCookie} from "../../../utils/cookieUtils";
+import {jwtDecode} from "jwt-decode";
 
 export default {
   name: "notProcessComplaint",
@@ -11,49 +13,6 @@ export default {
   data () {
     return {
       complaints: {},
-      // complains: [
-      //   {
-      //     number: 1,
-      //     name: 'Amila',
-      //     regDate: '2024-06-30',
-      //     remainDays: '15 days left',
-      //     status: 'Not process yet',
-      //     action: 'View Details'
-      //   },
-      //   {
-      //     number: 2,
-      //     name: 'Amila',
-      //     regDate: '2024-06-30',
-      //     remainDays: '15 days left',
-      //     status: 'Not process yet',
-      //     action: 'View Details'
-      //   },
-      //   {
-      //     number: 3,
-      //     name: 'Amila',
-      //     regDate: '2024-06-30',
-      //     remainDays: '15 days left',
-      //     status: 'Not process yet',
-      //     action: 'View Details'
-      //   },
-      //   {
-      //     number: 4,
-      //     name: 'Amila',
-      //     regDate: '2024-06-30',
-      //     remainDays: '15 days left',
-      //     status: 'Not process yet',
-      //     action: 'View Details'
-      //   },
-      //   {
-      //     number: 5,
-      //     name: 'Amila',
-      //     regDate: '2024-06-30',
-      //     remainDays: '15 days left',
-      //     status: 'Not process yet',
-      //     action: 'View Details'
-      //   },
-      //
-      // ],
     }
   },
 
@@ -62,8 +21,15 @@ export default {
     async fetchNotProcessedComplaints() {
       try {
         const response = await axios.get('http://localhost:3001/complaint/notProcessedComplaint');
-        this.complaints = response.data;
-        // console.log(response.data);
+        const token = getCookie("jwt");
+        const decodedToken = jwtDecode(token);
+        if(decodedToken.role=="teacher"){
+          this.complaints = response.data;
+        }else if(decodedToken.role=="facultyAdmin"){
+          this.complaints = response.data.filter(complaint => complaint.remainingDays < 0 );
+        }else if(decodedToken.role=="universityAdmin"){
+          this.complaints = response.data.filter(complaint => complaint.remainingDays < -15 );
+        }
       } catch (error) {
         console.error(error);
       }

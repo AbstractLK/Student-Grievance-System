@@ -47,9 +47,10 @@ export default {
       const token = getCookie("jwt");
       const decodedToken = jwtDecode(token);
       // console.log(decodedToken.role);
-      if (decodedToken.role == "teacher") {
-        this.dialog = true;
-      } else alert("You don't have permission to edit!");
+      if (decodedToken.role == "student") {
+        alert("You don't have permission to edit!");
+      } else
+          this.dialog = true;
     },
 
     async updateComplaint() {

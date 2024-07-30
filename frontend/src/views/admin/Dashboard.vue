@@ -1,12 +1,15 @@
 <script>
 
 import Titles from "@/components/Titles.vue";
+import {getCookie} from "../../../utils/cookieUtils";
+import {jwtDecode} from "jwt-decode";
 
 export default {
   name: "AdminDashboard",
   components: {Titles},
   data(){
     return {
+      subtitle: "",
       complaints : [
         {
           title: 'Complaints not process yet',
@@ -31,6 +34,22 @@ export default {
         },
       ]
     }
+  },
+
+  methods: {
+
+  },
+
+mounted(){
+    const token = getCookie("jwt");
+    const decodedToken = jwtDecode(token);
+    if(decodedToken.role=="teacher"){
+      this.subtitle = "Admin Dashboard";
+    }else if(decodedToken.role=="facultyAdmin"){
+      this.subtitle = "Faculty Admin Dashboard"
+    }else if(decodedToken.role=="universityAdmin"){
+      this.subtitle = "University Admin Dashboard"
+    }
   }
 }
 </script>
@@ -38,7 +57,7 @@ export default {
 <template>
 <!--  <Titles title="Admin Dashboard"/>-->
 <!--  <h1 class="ml-5 mt-5 mb-5 " style="font-size: 28px">Admin Dashboard</h1>-->
-  <div class="ml-5 mt-5 mb-5 text-h5">Admin Dashboard</div>
+  <div class="ml-5 mt-5 mb-5 text-h5">{{ subtitle }}</div>
 
   <v-sheet class="mx-5">
     <v-row>
@@ -76,46 +95,6 @@ export default {
       </v-col>
     </v-row>
   </v-sheet>
-
-
-
-<!--  <v-row align="center" justify="center" dense>-->
-<!--    <v-col cols="12" md="4">-->
-<!--      <v-card-->
-<!--        class="mx-5 mt-5 bg-red-accent-2"-->
-<!--        to="notprocess-complaint"-->
-<!--        max-width="344"-->
-<!--        prepend-icon="mdi-file-chart-outline"-->
-<!--        rel="noopener"-->
-<!--        subtitle="12 Complaints not Process yet"-->
-<!--        title="12"-->
-<!--      ></v-card>-->
-<!--    </v-col>-->
-
-<!--    <v-col cols="12" md="4">-->
-<!--      <v-card-->
-<!--        class="mx-5 mt-5 bg-amber-accent-2"-->
-<!--        to="inprocess-complaint"-->
-<!--        max-width="344"-->
-<!--        prepend-icon="mdi-file-chart-outline"-->
-<!--        rel="noopener"-->
-<!--        subtitle="4 Complaints Status in process"-->
-<!--        title="4"-->
-<!--      ></v-card>-->
-<!--    </v-col>-->
-
-<!--    <v-col cols="12" md="4">-->
-<!--      <v-card-->
-<!--        class="mx-5 mt-5 bg-green-accent-3"-->
-<!--        to="closed-complaint"-->
-<!--        max-width="344"-->
-<!--        prepend-icon="mdi-file-chart-outline"-->
-<!--        rel="noopener"-->
-<!--        subtitle="4 Complaint has been closed"-->
-<!--        title="4"-->
-<!--      ></v-card>-->
-<!--    </v-col>-->
-<!--  </v-row>-->
 
 </template>
 

@@ -4,6 +4,8 @@
 
 import {formatDate} from "../../../utils/formatDate";
 import axios from "axios";
+import {getCookie} from "../../../utils/cookieUtils";
+import {jwtDecode} from "jwt-decode";
 
 export default {
   name: "closedComplaint",
@@ -57,8 +59,15 @@ export default {
     async fetchNotProcessedComplaints() {
       try {
         const response = await axios.get('http://localhost:3001/complaint/closedComplaint');
-        this.complaints = response.data;
-        // console.log(response.data);
+        const token = getCookie("jwt");
+        const decodedToken = jwtDecode(token);
+        if(decodedToken.role=="teacher"){
+          this.complaints = response.data;
+        }else if(decodedToken.role=="facultyAdmin"){
+          this.complaints = response.data.filter(complaint => complaint.remainingDays < 0 );
+        }else if(decodedToken.role=="universityAdmin"){
+          this.complaints = response.data.filter(complaint => complaint.remainingDays < -15 );
+        }
       } catch (error) {
         console.error(error);
       }
