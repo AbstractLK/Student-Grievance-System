@@ -10,8 +10,8 @@ export default {
 <template>
   <v-layout>
     <v-main >
-      <router-view style="height: 75vh" />
-      <MyFooter />
+      <router-view style="height: 86vh" />
+      <MyFooter style="height: 14vh"/>
     </v-main>
   </v-layout>
 </template>

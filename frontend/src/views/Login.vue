@@ -28,10 +28,11 @@ export default {
             alert(response.data);
           }else {
             await this.addToCookie(response.data.accessToken);
+            const role = response.data.role;
             // console.log(response);
             // alert("Successfully login");
-            if (response.data.role=="teacher") await router.push('/admin');
-            if (response.data.role=="student") await router.push('/student');
+            if (role=="teacher" || role=="facultyAdmin" || role=="universityAdmin") await router.push('/admin');
+            if (role=="student") await router.push('/student');
           }
 
         })
@@ -68,13 +69,13 @@ export default {
 </script>
 
 <template>
-  <div class="mb-16">
-    <v-container>
-      <v-sheet class="pt-6" rounded >
-        <v-card elevation="12" rounded="lg" class="mx-auto pa-12 pt-8 " max-width="450" >
-          <div class="mb-12 text-center" style="color: #525252; ">
-            <h2 class="text-blue-grey">Student Grievance System </h2>
-            <h5>Sign in to Continue</h5>
+  <div class="background-image" >
+    <div>
+      <div class="pt-10" rounded>
+        <v-card elevation="12" rounded="lg" class="mx-auto pa-12 py-8 " max-width="370px" max-height="420px" >
+          <div class="mb-8 text-center" style="color: #525252;">
+            <h2 class="text-blue-grey" style="font-size: 25px; line-height: 90%">Student Grievance System </h2>
+            <h5 class="mt-1">Sign in to Continue</h5>
           </div>
 
           <v-form
@@ -98,7 +99,7 @@ export default {
               placeholder="Enter your password"
             ></v-text-field>
 
-            <v-btn variant="plain" size="small" class="mb-4 text-none" to="/auth/reset">
+            <v-btn variant="plain" size="small" class="mb-3 text-none" to="/auth/reset">
               <span class="text-amber-darken-4 ">Forget password?</span>
             </v-btn>
 
@@ -120,13 +121,18 @@ export default {
             </div>
           </v-form>
         </v-card>
-      </v-sheet>
-    </v-container>
+      </div>
+    </div>
   </div>
 </template>
 
 
 
 <style scoped>
-
+  .background-image {
+    background-image: url('../assets/abstr.avif');
+    background-repeat: no-repeat; /* Optional: Control how the image repeats */
+    background-size: cover; /* Optional: Adjust how the image fills the background */
+    background-position: center; /* Optional: Position the image within the element */
+  }
 </style>

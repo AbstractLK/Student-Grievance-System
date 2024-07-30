@@ -113,7 +113,7 @@ export default {
         fixed-tabs
       >
         <v-tab value="one">Student</v-tab>
-        <v-tab value="two">Teacher</v-tab>
+<!--        <v-tab value="two">Teacher</v-tab>-->
       </v-tabs>
     </v-sheet>
     <v-window v-model="tab">

@@ -32,13 +32,13 @@ const items = ref([
     value: "closed-complaint",
     to: "/admin/closed-complaint"
   },
-  {
-    title: 'students ',
-    prependIcon: 'mdi-file-chart-outline',
-    link: true,
-    value: "students",
-    to: "/admin/students"
-  },
+  // {
+  //   title: 'students ',
+  //   prependIcon: 'mdi-file-chart-outline',
+  //   link: true,
+  //   value: "students",
+  //   to: "/admin/students"
+  // },
 
 
 ])

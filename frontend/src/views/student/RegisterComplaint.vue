@@ -64,7 +64,7 @@ export default {
           console.error(error);
           // Handle error response
         });
-      // location.reload();
+      location.reload();
     },
   },
 
