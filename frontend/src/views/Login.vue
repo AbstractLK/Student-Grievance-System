@@ -130,7 +130,7 @@ export default {
 
 <style scoped>
   .background-image {
-    background-image: url('../assets/abstr.avif');
+    background-image: url('../assets/25582.jpg');
     background-repeat: no-repeat; /* Optional: Control how the image repeats */
     background-size: cover; /* Optional: Adjust how the image fills the background */
     background-position: center; /* Optional: Position the image within the element */

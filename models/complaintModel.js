@@ -17,7 +17,6 @@ const complaintSchema = new Schema({
     department: {
         type: String,
         // enum: ['Applied Computing', 'Mathematics', 'Physics', 'Chemistry'], // Example departments
-        required: true,
     },
     type: {
         type: String,

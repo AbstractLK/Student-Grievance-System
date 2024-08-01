@@ -13,6 +13,9 @@ const app = express();
 //app.use(cors());
 app.use(express.json());
 
+// Serve static files from the public directory
+// app.use(express.static('public'));
+
 app.use(cors({
     origin: 'http://localhost:3000', //frontend URL
     // methods: ['GET', 'POST'], // Specify the HTTP methods you want to allow

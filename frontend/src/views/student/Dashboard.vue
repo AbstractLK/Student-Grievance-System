@@ -10,35 +10,6 @@ export default {
   data () {
     return {
       complaints: null,
-
-      complains: [
-        {
-          number: 1,
-          status: 'in progress',
-          remark: 'okay'
-        },
-        {
-          number: 2,
-          status: 'in progress',
-          remark: 'okay'
-        },
-        {
-          number: 3,
-          status: 'closed',
-          remark: 'okay'
-        },
-        {
-          number: 4,
-          status: 'in progress',
-          remark: 'okay'
-        },
-        {
-          number: 5,
-          status: "closed",
-          remark: 'okay'
-        },
-
-      ],
     }
   },
 
