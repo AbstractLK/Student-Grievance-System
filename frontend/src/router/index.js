@@ -80,6 +80,10 @@ const routes = [
         component: () => import("@/views/ChangePass.vue"),
       },
       {
+        path: "user-profile",
+        component: () => import("@/views/UserProfile.vue"),
+      },
+      {
         path: "complaint-details/:id",
         component: () => import("@/views/complaint-details.vue"),
         props: true,
