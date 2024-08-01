@@ -19,7 +19,7 @@ const items = ref([
     to: "/student/register-complaint"
   },
   {
-    title: 'Complain History ',
+    title: 'Complain Details ',
     prependIcon: 'mdi-calendar',
     link: true,
     value: "complaint-history",
@@ -88,7 +88,7 @@ const items = ref([
 
           <v-menu activator="parent" >
             <v-list density="compact" nav>
-              <v-list-item append-icon="mdi-account-circle" link title="Profile" value="Profile" to="" />
+              <v-list-item append-icon="mdi-account-circle" link title="Profile" value="Profile" to="/student/user-profile" />
               <v-list-item append-icon="mdi-cog-outline" link title="Change password" value="changePass" to="/student/change-password" />
               <v-divider/>
               <v-list-item append-icon="mdi-logout" link title="Logout" value="Logout" to="/auth/" />

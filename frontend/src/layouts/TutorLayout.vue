@@ -46,16 +46,24 @@ const items = ref([
 
 <template>
   <v-layout>
-    <v-navigation-drawer v-model="drawer" class="pt-10 bg-blue-grey-darken-1">
+    <v-navigation-drawer v-model="drawer" class="pt-2 bg-blue-grey-darken-1">
+      <v-list>
+        <v-list-item
+          prepend-avatar="../assets/avatar.png"
+          subtitle="admin@gmail.com"
+          title="Admin"
+        ></v-list-item>
+      </v-list>
+      <v-divider></v-divider>
       <v-list density="compact" item-props :items="items" nav />
       <template #append>
         <v-list-item
-            class="ma-2"
-            link
-            nav
-            prepend-icon="mdi-cog-outline"
-            title="Settings"
-            to="/admin/change-password"
+          class="ma-2 "
+          link
+          nav
+          prepend-icon="mdi-logout"
+          title="Logout"
+          to="/auth/"
         />
       </template>
     </v-navigation-drawer>
@@ -71,12 +79,15 @@ const items = ref([
 
       <template #append>
         <v-btn class="text-none me-2" height="48" icon slim>
-          <v-avatar color="surface-light" image="https://cdn.vuetifyjs.com/images/john.png" size="32" />
+          <v-avatar color="surface-light"  size="32" >
+            <v-icon icon="mdi-cog-outline"></v-icon>
+          </v-avatar>
 
-          <v-menu activator="parent">
+          <v-menu activator="parent" >
             <v-list density="compact" nav>
-              <v-list-item append-icon="mdi-cog-outline" link title="Settings" value="settings" to="/admin/change-password" />
-
+<!--              <v-list-item append-icon="mdi-account-circle" link title="Profile" value="Profile" to="/student/user-profile" />-->
+              <v-list-item append-icon="mdi-cog-outline" link title="Change password" value="changePass" to="/admin/change-password" />
+              <v-divider/>
               <v-list-item append-icon="mdi-logout" link title="Logout" value="Logout" to="/auth/" />
             </v-list>
           </v-menu>
