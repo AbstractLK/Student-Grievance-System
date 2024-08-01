@@ -18,8 +18,10 @@ export default {
   },
   data() {
     return {
+      filePath: '/uploads/Image.png',
       complaint: '',
       dialog: false,
+      studentDialog: false,
       statusItem: [
         'not process',
         'in process',
@@ -48,12 +50,17 @@ export default {
       const decodedToken = jwtDecode(token);
       // console.log(decodedToken.role);
       if (decodedToken.role == "student") {
-        alert("You don't have permission to edit!");
+        this.studentDialog = true;
       } else
           this.dialog = true;
     },
 
-    async updateComplaint() {
+    async updateComplaint(role) {
+      if(role== 'student'){
+        this.complaint.remark = 'The complaint has canceled by student';
+        this.complaint.status = 'closed'
+      }
+      this.studentDialog = false;
       this.dialog = false;
       try {
         const response = await axios.put('http://localhost:3001/complaint/update-complaint/' + this.complaint._id, this.complaint);
@@ -121,12 +128,19 @@ export default {
           <td colspan="5">{{ complaint.complaintDescription }}</td>
         </tr>
         <tr>
-          <th class="pl-5 font-weight-black borderR">File</th>
-          <td colspan="5">no file</td>
+          <th class="pl-5 font-weight-black borderR">Final Status</th>
+          <td colspan="1" class="borderR">{{ complaint.status }}</td>
+          <th class="pl-5 font-weight-black borderR"></th>
+          <th class="pl-5 font-weight-black borderR">Attached File</th>
+          <td colspan="2">
+            <a :href="filePath" download>
+              Image.png
+            </a>
+          </td>
         </tr>
         <tr>
-          <th class="pl-5 font-weight-black borderR">Final Status</th>
-          <td colspan="5">{{ complaint.status }}</td>
+          <th class="pl-5 font-weight-black borderR">Remarks</th>
+          <td colspan="5">{{ complaint.remark }}</td>
         </tr>
         <tr>
           <th class="pl-5 font-weight-black borderR">Action</th>
@@ -184,8 +198,53 @@ export default {
             <v-btn color="blue-darken-1" variant="text" @click="dialog = false">
               Close
             </v-btn>
-            <v-btn color="blue-darken-1" variant="text" @click="updateComplaint()">
+            <v-btn color="blue-darken-1" variant="text" @click="updateComplaint('notStudent')">
               Save
+            </v-btn>
+          </v-card-actions>
+        </v-sheet>
+      </v-card>
+    </v-dialog>
+  </v-row>
+
+  <v-row justify="center">
+    <v-dialog v-model="studentDialog" persistent width="1024">
+
+      <v-card class="rounded-lg">
+        <v-card-title class="mt-1 ml-6">
+          <span class="">Complaint Action</span>
+        </v-card-title>
+        <v-divider></v-divider>
+        <v-sheet class="mx-10 mb-3">
+          <v-card-text>
+            <v-container class="">
+              <v-row>
+                <v-col cols="2">
+                  <v-label>Complaint No</v-label>
+                </v-col>
+                <v-col cols="">
+                  <v-label class="ml-2">{{complaint._id}}</v-label>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="2"><v-label>Complaint Details: </v-label></v-col>
+                <v-col cols="">
+                  <v-label class="ml-2">{{complaint.complaintDescription}}</v-label>
+<!--                  <v-sheet>-->
+<!--                    <v-textarea disabled v-model="complaint.complaintDescription"-->
+<!--                                 auto-grow rows="3"></v-textarea>-->
+<!--                  </v-sheet>-->
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="blue-darken-1" variant="text" @click="studentDialog = false">
+              Close
+            </v-btn>
+            <v-btn color="blue-darken-1" variant="text" @click="updateComplaint('student')">
+              Cancel Complaint
             </v-btn>
           </v-card-actions>
         </v-sheet>
