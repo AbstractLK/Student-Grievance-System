@@ -11,44 +11,15 @@ export default {
   // components: {Titles},
   data () {
     return {
-      complaints: {},
-      complains: [
-        {
-          number: 1,
-          name: 'Amila',
-          regDate: '2024-06-30',
-          status: 'in process',
-          action: 'View Details'
-        },
-        {
-          number: 2,
-          name: 'Amila',
-          regDate: '2024-06-30',
-          status: 'in process',
-          action: 'View Details'
-        },
-        {
-          number: 3,
-          name: 'Amila',
-          regDate: '2024-06-30',
-          status: 'in process',
-          action: 'View Details'
-        },
-        {
-          number: 4,
-          name: 'Amila',
-          regDate: '2024-06-30',
-          status: 'in process',
-          action: 'View Details'
-        },
-        {
-          number: 5,
-          name: 'Amila',
-          regDate: '2024-06-30',
-          status: 'in process',
-          action: 'View Details'
-        },
-
+      complaints: [],
+      search: '',
+      headers: [
+        { title: 'Complain No', align: 'start', key: '_id' },
+        { title: 'Complainant Email', key: 'complainantEmail' },
+        { title: 'Reg Date', key: 'createdAt' },
+        { title: 'Status', key: 'status' },
+        { title: 'Action', key: 'action', sortable: false },
+        { title: 'Remaining Days', key: 'remainingDays' },
       ],
     }
   },
@@ -80,50 +51,55 @@ export default {
 </script>
 
 <template>
-<!--  <Titles title="In Process Complaint"/>-->
+  <v-card flat>
+    <v-card-title class="d-flex align-center pe-2 text-h5 mb-2 mt-4 ml-5">
+      In Process Complaint
 
-  <div class="ml-5 mt-5 mb-2 text-h5">In Process Complaint</div>
-  <v-table
-    class="mx-5"
-    height="430px"
-    fixed-header
-  >
-    <thead>
-    <tr>
-      <th class="text-left font-weight-black">
-        Complain No
-      </th>
-      <th class="text-left font-weight-black">
-        Complainant Email
-      </th>
-      <th class="text-left font-weight-black">
-        Reg Date
-      </th>
-      <th class="text-left font-weight-black">
-        Status
-      </th>
-      <th class="text-left font-weight-black">
-        Action
-      </th>
-      <th class="text-left font-weight-black">
-        Remaining Days
-      </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr
-      v-for="item in complaints"
-      :key="item._id"
+      <v-spacer></v-spacer>
+
+      <v-text-field
+        v-model="search"
+        density="compact"
+        label="Search by Email or Complaint ID"
+        prepend-inner-icon="mdi-magnify"
+        variant="outlined"
+        flat
+        hide-details
+        single-line
+      ></v-text-field>
+    </v-card-title>
+
+    <v-divider></v-divider>
+
+    <v-data-table
+      :headers="headers"
+      :items="complaints"
+      :search="search"
+      class="mx-5"
+      height="430px"
+      fixed-header
     >
-      <td>{{ item._id }}</td>
-      <td>{{ item.anonymous === 'anonymous' ? 'Anonymous' : item.complainantEmail }}</td>
-      <td>{{ formatDate(item.createdAt) }}</td>
-      <td><v-btn size="small" color="orange-lighten-1" variant="flat">{{ item.status }}</v-btn></td>
-      <td><v-btn size="small" :to="`complaint-details/${item._id}`">View Details</v-btn></td>
-      <td>{{ item.remainingDays }} Days</td>
-    </tr>
-    </tbody>
-  </v-table>
+      <template v-slot:item.createdAt="{ item }">
+        {{ formatDate(item.createdAt) }}
+      </template>
+
+      <template v-slot:item.complainantEmail="{ item }">
+        {{ item.anonymous === 'anonymous' ? 'Anonymous' : item.complainantEmail }}
+      </template>
+
+      <template v-slot:item.action="{ item }">
+        <v-btn size="small" :to="`complaint-details/${item._id}`">View Details</v-btn>
+      </template>
+
+      <template v-slot:item.status="{ item }">
+        <v-btn size="small" color="orange-lighten-1" variant="flat">{{ item.status }}</v-btn>
+      </template>
+
+      <template v-slot:item.remainingDays="{ item }">
+        <div>{{ item.remainingDays }} Days</div>
+      </template>
+    </v-data-table>
+  </v-card>
 </template>
 
 <style scoped>
