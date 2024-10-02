@@ -5,6 +5,9 @@ const notProcessedComplaint = require('./complaint.notProcess');
 const inProcessedComplaint = require('./complaint.inProcess');
 const closedComplaint = require('./complaint.closed');
 const updateComplaint = require('./complaint.update');
+const sendMessage = require('./complaint.sendMessage');
+const getMessage = require('./complaint.getMessages');
+const getReport = require('./complaint.getReport');
 
 module.exports = {
     getAllComplaint,
@@ -13,5 +16,8 @@ module.exports = {
     notProcessedComplaint,
     inProcessedComplaint,
     closedComplaint,
-    updateComplaint
+    updateComplaint,
+    sendMessage,
+    getMessage,
+    getReport
 };

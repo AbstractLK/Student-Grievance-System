@@ -14,6 +14,7 @@
   "dependencies": {
     "@vue/compiler-sfc": "^3.4.31",
     "bcryptjs": "^2.4.3",
+    "chart.js": "^4.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.19.2",
@@ -24,6 +25,7 @@
     "nodemailer": "^6.9.14",
     "nodemon": "^2.0.22",
     "vue": "^3.4.31",
+    "vue-chartjs": "^5.3.1",
     "vue-router": "^4.4.0",
     "vuex": "^4.1.0"
   },

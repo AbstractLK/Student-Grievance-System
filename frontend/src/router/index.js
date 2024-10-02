@@ -127,6 +127,10 @@ const routes = [
         path: "change-password",
         component: () => import("@/views/ChangePass.vue"),
       },
+      {
+        path: "view-report",
+        component: () => import("@/views/admin/viewReport.vue"),
+      },
     ],
   },
 ];

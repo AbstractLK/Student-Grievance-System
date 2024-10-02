@@ -12,11 +12,13 @@
     "@mdi/font": "7.0.96",
     "@vue/compiler-sfc": "^3.4.31",
     "axios": "^1.4.0",
+    "chart.js": "^4.4.3",
     "core-js": "^3.29.0",
     "jwt-decode": "^4.0.0",
     "roboto-fontface": "*",
     "vite": "^5.3.2",
     "vue": "^3.4.31",
+    "vue-chartjs": "^5.3.1",
     "vue-router": "^4.2.2",
     "vuetify": "^3.6.11",
     "webfontloader": "^1.0.0"

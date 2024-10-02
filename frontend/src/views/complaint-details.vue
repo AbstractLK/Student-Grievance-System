@@ -4,9 +4,9 @@
 
 import axios from "axios";
 // import {id} from "vuetify/locale";
-import {formatDate} from "../../utils/formatDate";
-import {getCookie} from "../../utils/cookieUtils";
-import {jwtDecode} from "jwt-decode";
+import { formatDate } from "../../utils/formatDate";
+import { getCookie } from "../../utils/cookieUtils";
+import { jwtDecode } from "jwt-decode";
 
 export default {
   name: "ComplainDetails",
@@ -18,10 +18,15 @@ export default {
   },
   data() {
     return {
+      chatDialog: false,
+      messages: [],
+      newMessage: '',
+
       filePath: '/uploads/Image.png',
       complaint: '',
       dialog: false,
       studentDialog: false,
+      chatInterval: null,
       statusItem: [
         'not process',
         'in process',
@@ -52,11 +57,11 @@ export default {
       if (decodedToken.role == "student") {
         this.studentDialog = true;
       } else
-          this.dialog = true;
+        this.dialog = true;
     },
 
     async updateComplaint(role) {
-      if(role== 'student'){
+      if (role == 'student') {
         this.complaint.remark = 'The complaint has canceled by student';
         this.complaint.status = 'closed'
       }
@@ -65,20 +70,134 @@ export default {
       try {
         const response = await axios.put('http://localhost:3001/complaint/update-complaint/' + this.complaint._id, this.complaint);
         console.log(response.data);
+        // if (response.data) {
+        //   alert("Complaint updated successfully");
+        // }
       } catch (e) {
         console.error(e);
       }
+    },
+
+    async fetchMessages() {
+      try {
+        const response = await axios.get(`http://localhost:3001/complaint/getMessages/${this.id}`);
+        this.messages = response.data;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+    async sendMessage() {
+      const token = getCookie("jwt");
+      const decodedToken = jwtDecode(token);
+      const userRole = decodedToken.role;
+      const email = decodedToken.email;
+
+      try {
+        await axios.post('http://localhost:3001/complaint/sendMessage', {
+          complaintID: this.id,
+          userRole,
+          email,
+          message: this.newMessage
+        });
+        this.newMessage = '';
+        await this.fetchMessages(); // Refresh messages after sending
+        this.scrollToBottom();
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+    openChatbox() {
+      this.chatDialog = true;
+      // console.log("chat box open")
+      this.fetchMessages(); // Fetch messages initially when chatbox opens
+      this.scrollToBottom();
+      this.chatInterval = setInterval(this.fetchMessages, 1000); // Start interval to fetch messages every second
+    },
+    closeChatbox() {
+      this.chatDialog = false;
+      // console.log("chat box closed")
+      clearInterval(this.chatInterval); // Clear the interval when chatbox closes
+      this.chatInterval = null; // Reset the interval ID
+    },
+    scrollToBottom() {
+      this.$nextTick(() => {
+        const element = document.getElementById("content");
+        element.scrollTop = element.scrollHeight
+        // console.log(element.scrollHeight);
+      });
     }
+
   },
+
   mounted() {
     this.fetchComplaintDetails();
+    this.fetchMessages();
   }
 }
 </script>
 
 <template>
+
   <!--  <Titles title="ComplainDetails"/>-->
-  <div class="ml-5 mt-5 mb-2 text-h5">Complaint Details</div>
+  <v-row>
+    <v-col cols="9">
+      <v-sheet class="pl-10 ma-2">
+        <div class="mt-5 mb-2 text-h5">Complaint Details</div>
+      </v-sheet>
+    </v-col>
+    <v-col>
+      <div class="pa-4 text-end">
+        <v-btn size="large" color="success" density="comfortable" rounded="pill" class="pe-5 pt-1 pb-1 mr-5"
+          prepend-icon="mdi-message-text" variant="elevated" @click="openChatbox">
+          CHAT
+        </v-btn>
+      </div>
+    </v-col>
+  </v-row>
+
+  <v-dialog v-model="chatDialog" max-width="550" scrollable>
+    <v-card rounded="lg">
+      <v-card-title class="d-flex justify-space-between align-center">
+        <div class="text-h5 text-medium-emphasis ps-2">
+          Complaint Discussion
+          <!-- No: {{ complaint._id }} -->
+        </div>
+
+        <v-btn icon="mdi-close" variant="text" @click="closeChatbox"></v-btn>
+      </v-card-title>
+
+      <v-divider class="mb-4"></v-divider>
+
+      <v-card-text id="content" style="max-width: 540px; height: 380px; padding-left: 50px;">
+        <v-timeline density="compact" side="end">
+          <v-timeline-item size="default" v-for="msg in messages" :key="msg._id">
+            <template v-slot:icon>
+              <v-avatar image="https://i.pravatar.cc/64"></v-avatar>
+            </template>
+            <v-card class="elevation-2">
+              <v-card-title class="text-h6">
+                {{ msg.userRole }}
+              </v-card-title>
+              <v-card-text style="width: 370px">{{ msg.message }} </v-card-text>
+            </v-card>
+          </v-timeline-item>
+        </v-timeline>
+      </v-card-text>
+
+      <v-divider class="mt-2"></v-divider>
+
+      <v-card-actions class="my-2 d-flex justify-end">
+        <v-textarea v-model="newMessage" :counter="300" class="mt-4 mx-3" rows="1" density="comfortable"
+          variant="outlined" persistent-counter></v-textarea>
+
+        <v-btn class="text-none mr-1" color="primary" rounded="xl" text="Send" variant="flat"
+          @click="sendMessage"></v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+
 
   <v-card>
     <v-table class="mx-10 border border-opacity-50 rounded-lg" height="" fixed-header>
@@ -88,7 +207,7 @@ export default {
             Complain No
           </th>
           <td class="borderR">
-            {{complaint._id}}
+            {{ complaint._id }}
           </td>
           <th class="text-left font-weight-black borderR">
             Reg Date
@@ -168,7 +287,7 @@ export default {
                   <v-label>Complaint No</v-label>
                 </v-col>
                 <v-col cols="">
-                  <v-label class="ml-2">{{complaint._id}}</v-label>
+                  <v-label class="ml-2">{{ complaint._id }}</v-label>
                 </v-col>
               </v-row>
               <v-row>
@@ -223,17 +342,17 @@ export default {
                   <v-label>Complaint No</v-label>
                 </v-col>
                 <v-col cols="">
-                  <v-label class="ml-2">{{complaint._id}}</v-label>
+                  <v-label class="ml-2">{{ complaint._id }}</v-label>
                 </v-col>
               </v-row>
               <v-row>
                 <v-col cols="2"><v-label>Complaint Details: </v-label></v-col>
                 <v-col cols="">
-                  <v-label class="ml-2">{{complaint.complaintDescription}}</v-label>
-<!--                  <v-sheet>-->
-<!--                    <v-textarea disabled v-model="complaint.complaintDescription"-->
-<!--                                 auto-grow rows="3"></v-textarea>-->
-<!--                  </v-sheet>-->
+                  <v-label class="ml-2">{{ complaint.complaintDescription }}</v-label>
+                  <!--                  <v-sheet>-->
+                  <!--                    <v-textarea disabled v-model="complaint.complaintDescription"-->
+                  <!--                                 auto-grow rows="3"></v-textarea>-->
+                  <!--                  </v-sheet>-->
                 </v-col>
               </v-row>
             </v-container>
@@ -251,6 +370,8 @@ export default {
       </v-card>
     </v-dialog>
   </v-row>
+
+
 </template>
 
 <style scoped>

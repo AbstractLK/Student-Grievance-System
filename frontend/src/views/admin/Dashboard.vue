@@ -1,12 +1,13 @@
 <script>
 
-import Titles from "@/components/Titles.vue";
+// import Titles from "@/components/Titles.vue";
 import {getCookie} from "../../../utils/cookieUtils";
 import {jwtDecode} from "jwt-decode";
+// import PieChart from "@/components/PieChart.vue";
 
 export default {
   name: "AdminDashboard",
-  components: {Titles},
+  components: { },
   data(){
     return {
       subtitle: "",
@@ -94,6 +95,12 @@ mounted(){
         </v-card>
       </v-col>
     </v-row>
+    <!-- Include the PieChart component -->
+<!--    <v-row>-->
+<!--      <v-col cols="12">-->
+<!--        <PieChart/>-->
+<!--      </v-col>-->
+<!--    </v-row>-->
   </v-sheet>
 
 </template>
