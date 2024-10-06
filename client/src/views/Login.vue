@@ -3,7 +3,7 @@
 import axios from "axios";
 import router from "@/router";
 // import {getCookie} from "../../utils/cookieUtils";
-const URL = import.meta.env.URL;
+const URL = import.meta.env.VITE_URL;
 
 
 export default {

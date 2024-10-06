@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios';
 import { formatDate } from "../../../utils/formatDate"; // Ensure you have a utility to format the date
+const URL = import.meta.env.VITE_URL;
 
 export default {
   name: "viewReport",
@@ -16,7 +17,7 @@ export default {
   methods: {
     async fetchComplaints() {
       try {
-        const response = await axios.get(`http://localhost:3001/complaint/report`, {
+        const response = await axios.get(URL+`/complaint/report`, {
           params: {
             startDate: this.startDate,
             endDate: this.endDate

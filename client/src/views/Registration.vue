@@ -2,6 +2,7 @@
 //const apiURL = "localhost:3000/auth"
 import axios from 'axios'
 import router from "@/router";
+const URL = import.meta.env.VITE_URL;
 
 export default {
   name: "Registration",
@@ -56,7 +57,7 @@ export default {
       await this.$refs.form.validate();
       if (this.valid) {
         this.user.role = role;
-        await axios.post('http://localhost:3001/auth/registration', this.user)
+        await axios.post(URL+'/auth/registration', this.user)
           .then(response => {
             console.log(response.data);
             if (response.data) {

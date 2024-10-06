@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+const URL = import.meta.env.VITE_URL;
 
 export default {
   data() {
@@ -18,7 +19,7 @@ export default {
   methods: {
     async resetPassword() {
       try {
-        await axios.post('http://localhost:3001/reset-password/reset', { email: this.email, newPass: this.newPass });
+        await axios.post(URL+'/reset-password/reset', { email: this.email, newPass: this.newPass });
         alert('Password reset successfully!');
         this.$router.push('/');
       } catch (error) {

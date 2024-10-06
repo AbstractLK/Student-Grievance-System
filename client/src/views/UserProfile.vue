@@ -2,6 +2,7 @@
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { getCookie } from "../../utils/cookieUtils.js";
+const URL = import.meta.env.VITE_URL;
 
 export default {
   name: "UserProfile",
@@ -31,7 +32,7 @@ export default {
       this.userId = decodedToken.id;
       // console.log(decodedToken.id);
       try {
-        const response = await axios.get('http://localhost:3001/user/getAll')
+        const response = await axios.get(URL+'/user/getAll')
         this.userDetails = response.data.filter(user => user._id === this.userId)[0];
         // console.log(this.userDetails);
       } catch (error) {
@@ -49,7 +50,7 @@ export default {
     },
     async saveProfile() {
       try {
-        const response = await axios.put('http://localhost:3001/user/update-user/' + this.userId, this.userDetails);
+        const response = await axios.put(URL+'/user/update-user/' + this.userId, this.userDetails);
         console.log(response);
       } catch (error) {
         console.error(error);

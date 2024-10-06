@@ -5,6 +5,7 @@ import { formatDate } from "../../../utils/formatDate";
 import axios from "axios";
 import { getCookie } from "../../../utils/cookieUtils";
 import { jwtDecode } from "jwt-decode";
+const URL = import.meta.env.VITE_URL;
 
 export default {
   name: "InProcessComplaint",
@@ -59,7 +60,7 @@ export default {
       try {
         const token = getCookie("jwt");
         const decodedToken = jwtDecode(token);
-        const response = await axios.get('http://localhost:3001/complaint/inProcessedComplaint', {
+        const response = await axios.get(URL+'/complaint/inProcessedComplaint', {
           headers:{
             'role': decodedToken.role
           }

@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+const URL = import.meta.env.VITE_URL;
 
 export default {
   data() {
@@ -27,7 +28,7 @@ export default {
     },
     async verifyCode() {
       try {
-        await axios.post('http://localhost:3001/reset-password/verify-code', { email: this.email, code: this.code });
+        await axios.post(URL+'/reset-password/verify-code', { email: this.email, code: this.code });
         this.$router.push({ path: 'reset-password', query: { email: this.email } });
         // alert('code valid');
         // console.log(this.email);
@@ -37,7 +38,7 @@ export default {
     },
     async resendCode() {
       try {
-        await axios.post('http://localhost:3001/reset-password/send-code', { email: this.email });
+        await axios.post(URL+'/reset-password/send-code', { email: this.email });
         this.timer = 60;
       } catch (error) {
         alert('Error resending code');

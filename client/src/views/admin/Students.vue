@@ -4,6 +4,7 @@ import axios from "axios";
 import Titles from "@/components/Titles.vue";
 // import { getCookie } from '/utils/cookieUtils';
 import { tokenAttach } from "/utils/tokenAttach";
+const URL = import.meta.env.VITE_URL;
 // import router from "@/router";
 
 export default {
@@ -20,7 +21,7 @@ export default {
 
     async getAll() {
       try {
-        const response = await axios.get('http://localhost:3001/auth/getAll')
+        const response = await axios.get(URL+'/auth/getAll')
         this.users = response.data.filter(user => user.role === "student");
         // console.log(this.users);
       } catch (error) {
@@ -31,7 +32,7 @@ export default {
 
     async deleteUser(id) {
       try {
-        const response = await axios.delete('http://localhost:3001/auth/delete-user/' + id)
+        const response = await axios.delete(URL+'/auth/delete-user/' + id)
         console.log(response.data);
         await this.getAll();
       } catch (error) {
@@ -50,7 +51,7 @@ export default {
       // console.log(userId);
       // console.log(updatedData);
       try {
-        const response = await axios.put('http://localhost:3001/auth/update-user/' + userId, updatedData);
+        const response = await axios.put(URL+'/auth/update-user/' + userId, updatedData);
         console.log(response.data);
       } catch (e) {
         console.error(e);

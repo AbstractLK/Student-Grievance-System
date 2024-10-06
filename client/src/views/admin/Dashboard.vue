@@ -4,6 +4,7 @@
 import { getCookie } from "../../../utils/cookieUtils";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+const URL = import.meta.env.VITE_URL;
 // import PieChart from "@/components/PieChart.vue";
 
 export default {
@@ -51,21 +52,21 @@ export default {
       }
 
       try {
-        const response1 = await axios.get('http://localhost:3001/complaint/notProcessedComplaint', {
+        const response1 = await axios.get(URL+'/complaint/notProcessedComplaint', {
           headers: {
             'role': decodedToken.role
           }
         });
         this.complaints[0].count = response1.data.length;
 
-        const response2 = await axios.get('http://localhost:3001/complaint/inProcessedComplaint', {
+        const response2 = await axios.get(URL+'/complaint/inProcessedComplaint', {
           headers: {
             'role': decodedToken.role
           }
         });
         this.complaints[1].count = response2.data.length;
 
-        const response3 = await axios.get('http://localhost:3001/complaint/closedComplaint', {
+        const response3 = await axios.get(URL+'/complaint/closedComplaint', {
           headers: {
             'role': decodedToken.role
           }

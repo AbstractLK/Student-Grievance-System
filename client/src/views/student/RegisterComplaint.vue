@@ -4,7 +4,7 @@
 import axios from "axios";
 // import router from "@/router";
 import {getCookie} from "../../../utils/cookieUtils";
-
+const URL = import.meta.env.VITE_URL;
 
 export default {
   name: "RegisterComplaint",
@@ -54,7 +54,7 @@ export default {
     async submitComplaint() {
       await this.$refs.form.validate()
       if (this.valid){
-        await axios.post('http://localhost:3001/complaint/submit-complaint', this.complaint)
+        await axios.post(URL+'/complaint/submit-complaint', this.complaint)
           .then(response => {
             console.log(response.data);
             if (response.data) {

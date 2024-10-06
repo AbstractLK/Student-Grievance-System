@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import {tokenAttach} from "../../utils/tokenAttach";
+const URL = import.meta.env.VITE_URL;
 
 export default {
   name: "ChangePass",
@@ -29,7 +30,7 @@ export default {
     async changePassword() {
       tokenAttach(); // Attach token to axios request
       try {
-        const response = await axios.put('http://localhost:3001/user/change-password', {
+        const response = await axios.put(URL+'/user/change-password', {
           currentPass: this.currentPass,
           newPass: this.newPass
         });

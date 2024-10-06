@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+const URL = import.meta.env.VITE_URL;
 
 export default {
   data() {
@@ -15,7 +16,7 @@ export default {
   methods: {
     async sendCode() {
       try {
-        await axios.post('http://localhost:3001/reset-password/send-code', { email: this.email });
+        await axios.post(URL+'/reset-password/send-code', { email: this.email });
         this.$router.push({ path: 'verify-code', query: { email: this.email } });
       } catch (error) {
         alert('Email not found!');

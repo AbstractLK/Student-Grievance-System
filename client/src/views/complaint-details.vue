@@ -7,6 +7,7 @@ import axios from "axios";
 import { formatDate } from "../../utils/formatDate";
 import { getCookie } from "../../utils/cookieUtils";
 import { jwtDecode } from "jwt-decode";
+const URL = import.meta.env.VITE_URL;
 
 export default {
   name: "ComplainDetails",
@@ -41,7 +42,7 @@ export default {
     formatDate,
     async fetchComplaintDetails() {
       try {
-        const response = await axios.get(`http://localhost:3001/complaint/getOneComplaint/${this.id}`);
+        const response = await axios.get(URL+`/complaint/getOneComplaint/${this.id}`);
         this.complaint = response.data;
         // console.log(this.complaint);
       } catch (error) {
@@ -68,7 +69,7 @@ export default {
       this.studentDialog = false;
       this.dialog = false;
       try {
-        const response = await axios.put('http://localhost:3001/complaint/update-complaint/' + this.complaint._id, this.complaint);
+        const response = await axios.put(URL+'/complaint/update-complaint/' + this.complaint._id, this.complaint);
         console.log(response.data);
         // if (response.data) {
         //   alert("Complaint updated successfully");
@@ -80,7 +81,7 @@ export default {
 
     async fetchMessages() {
       try {
-        const response = await axios.get(`http://localhost:3001/complaint/getMessages/${this.id}`);
+        const response = await axios.get(URL+`/complaint/getMessages/${this.id}`);
         // console.log(response.data);
         this.messages = response.data;
       } catch (error) {
@@ -95,7 +96,7 @@ export default {
       const email = decodedToken.email;
 
       try {
-        await axios.post('http://localhost:3001/complaint/sendMessage', {
+        await axios.post(URL+'/complaint/sendMessage', {
           complaintID: this.id,
           userRole,
           email,

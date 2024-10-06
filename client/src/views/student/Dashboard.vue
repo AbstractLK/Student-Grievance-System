@@ -4,6 +4,7 @@
 import axios from "axios";
 import { tokenAttach } from "../../../utils/tokenAttach";
 import { formatDate } from "../../../utils/formatDate";
+const URL = import.meta.env.VITE_URL;
 
 export default {
   name: "Dashboard",
@@ -18,7 +19,7 @@ export default {
     formatDate,
     async getComplaint() {
       try {
-        const response = await axios.get('http://localhost:3001/complaint/getAllComplaint');
+        const response = await axios.get(URL+'/complaint/getAllComplaint');
         this.complaints = response.data;
         // console.log(response.data);
       } catch (error) {
