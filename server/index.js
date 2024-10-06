@@ -23,9 +23,9 @@ app.use(cors({
 }));
 
 //router
-app.use('/', (req, res) => {
-    res.send('Welcome to the server');
-});
+// app.use('/', (req, res) => {
+//     res.send('Welcome to the server');
+// });
 app.use('/auth', authRoute);
 app.use('/user', userRoute);
 app.use('/task', taskRoute);
