@@ -8,6 +8,7 @@ const authRoute = require('./router/auth');
 const userRoute = require('./router/users');
 const taskRoute = require('./router/tasks');
 const complaintRoute = require('./router/complaint');
+const CLIENT_URL = process.env.CLIENT_URL;
 
 const app = express();
 //app.use(cors());
@@ -17,13 +18,13 @@ app.use(express.json());
 // app.use(express.static('public'));
 
 app.use(cors({
-    origin: 'http://localhost:3000', //frontend URL
+    origin: CLIENT_URL, //frontend URL
     // methods: ['GET', 'POST'], // Specify the HTTP methods you want to allow
     // allowedHeaders: ['Content-Type', 'Authorization'], // Specify the headers you want to allow
 }));
 
 //router
-// app.use('/', (req, res) => {
+// app.use('/test', (req, res) => {
 //     res.send('Welcome to the server');
 // });
 app.use('/auth', authRoute);
