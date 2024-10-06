@@ -3,6 +3,7 @@
 import axios from "axios";
 import router from "@/router";
 // import {getCookie} from "../../utils/cookieUtils";
+const URL = import.meta.env.URL;
 
 
 export default {
@@ -19,7 +20,7 @@ export default {
   }),
   methods: {
     async logicAct() {
-      await axios.post('http://localhost:3001/auth', this.credential)
+      await axios.post(URL+'/auth', this.credential)
         .then(async response => {
           // console.log(response.data.accessToken);
           if (response.data == "Invalid Email or Password!") {
