@@ -4,122 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="843a7e40-db94-4015-a2af-3cb35cbf32f2" name="Changes" comment="updated">
-      <change afterPath="$PROJECT_DIR$/server/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Student Grievance System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/Student Grievance System.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/server/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/complaint/complaint.closed.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/complaint/complaint.closed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/complaint/complaint.getAll.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/complaint/complaint.getAll.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/complaint/complaint.getMessages.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/complaint/complaint.getMessages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/complaint/complaint.getOne.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/complaint/complaint.getOne.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/complaint/complaint.getReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/complaint/complaint.getReport.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/complaint/complaint.inProcess.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/complaint/complaint.inProcess.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/complaint/complaint.notProcess.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/complaint/complaint.notProcess.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/complaint/complaint.sendMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/complaint/complaint.sendMessage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/complaint/complaint.submit.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/complaint/complaint.submit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/complaint/complaint.update.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/complaint/complaint.update.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/complaint/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/complaint/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/task/task.cotroller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/task/task.cotroller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user/generateToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/user/generateToken.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/user/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user/user.changePass.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/user/user.changePass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user/user.delete.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/user/user.delete.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user/user.getAll.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/user/user.getAll.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user/user.login.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/user/user.login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user/user.registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/user/user.registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user/user.resetPass.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/user/user.resetPass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user/user.sendCode.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/user/user.sendCode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user/user.update.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/user/user.update.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/user/user.verifyCode.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/user/user.verifyCode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/complaint.db.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/data/complaint.db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/task.db.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/data/task.db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/user.db.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/data/user.db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.browserslistrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/jsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/uploads/Image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/25582.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/abstr.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/avatar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/PieChart.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Titles.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/layouts/AuthLayout.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/layouts/StudentLayout.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/layouts/TutorLayout.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/layouts/default/AppBar.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/layouts/default/Default.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/layouts/default/MyFooter.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/layouts/default/View.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/plugins/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/plugins/vuetify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/plugins/webfontloader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/services/APIService.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/services/AuthService.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles/settings.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/ChangePass.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/Home.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/Login.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/Registration.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/ResetStep1.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/ResetStep2.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/ResetStep3.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/UserProfile.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/admin/Closed-complaint.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/admin/Dashboard.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/admin/Inprocess-complaint.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/admin/Notprocess-complaint.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/admin/Students.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/admin/viewReport.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/complaint-details.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/student/Classes.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/student/CompliantHistory.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/student/Dashboard.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/student/Messages.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/student/RegisterComplaint.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/utils/cookieUtils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/utils/formatDate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/utils/tokenAttach.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img.png" beforeDir="false" afterPath="$PROJECT_DIR$/server/img.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs/scheduler.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/jobs/scheduler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/authMW.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/middlewares/authMW.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/checkRoles.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/middlewares/checkRoles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Login_History.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/Login_History.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/chatboxModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/chatboxModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/complaintModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/complaintModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/task.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/router/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/complaint.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/router/complaint.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/router/tasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/router/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/codeStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/util/codeStorage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/emailUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/util/emailUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/enum/userRoles.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/util/enum/userRoles.js" afterDir="false" />
-    </list>
+    <list default="true" id="843a7e40-db94-4015-a2af-3cb35cbf32f2" name="Changes" comment="few updated" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -339,7 +224,7 @@
       <workItem from="1727958901384" duration="563000" />
       <workItem from="1727960151875" duration="1206000" />
       <workItem from="1728030629372" duration="2378000" />
-      <workItem from="1728035755597" duration="7679000" />
+      <workItem from="1728035755597" duration="9331000" />
     </task>
     <task id="LOCAL-00001" summary="validate registration form">
       <option name="closed" value="true" />
@@ -629,7 +514,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727878011520</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="few updated">
+      <option name="closed" value="true" />
+      <created>1728183798900</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1728183798900</updated>
+    </task>
+    <task id="LOCAL-00038" summary="few updated">
+      <option name="closed" value="true" />
+      <created>1728190294874</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1728190294874</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -647,7 +548,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add complaint details page" />
     <MESSAGE value="add complaint history page" />
     <MESSAGE value="add cookie file" />
     <MESSAGE value="added new files" />
@@ -672,7 +572,8 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="update complaint view pages" />
     <MESSAGE value="updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated" />
+    <MESSAGE value="few updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="few updated" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
