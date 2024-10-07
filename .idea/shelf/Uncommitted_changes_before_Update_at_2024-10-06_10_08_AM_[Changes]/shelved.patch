@@ -1,0 +1,38 @@
+Index: server/.idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/server/.idea/vcs.xml b/server/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1719470523808)
++++ b/server/.idea/vcs.xml	(date 1719470523808)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: server/.idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/server/.idea/modules.xml b/server/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1720681178338)
++++ b/server/.idea/modules.xml	(date 1720681178338)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/Student Grievance System.iml" filepath="$PROJECT_DIR$/.idea/Student Grievance System.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+diff --git a/server/models/Login_History.js b/server/models/Login_History.js
+new file mode 100644

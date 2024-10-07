@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="843a7e40-db94-4015-a2af-3cb35cbf32f2" name="Changes" comment="few updated" />
+    <list default="true" id="843a7e40-db94-4015-a2af-3cb35cbf32f2" name="Changes" comment="modify index file">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -224,7 +226,11 @@
       <workItem from="1727958901384" duration="563000" />
       <workItem from="1727960151875" duration="1206000" />
       <workItem from="1728030629372" duration="2378000" />
-      <workItem from="1728035755597" duration="9331000" />
+      <workItem from="1728035755597" duration="10211000" />
+      <workItem from="1728202974272" duration="10000" />
+      <workItem from="1728211249204" duration="1477000" />
+      <workItem from="1728300806796" duration="5000" />
+      <workItem from="1728301133970" duration="5480000" />
     </task>
     <task id="LOCAL-00001" summary="validate registration form">
       <option name="closed" value="true" />
@@ -530,7 +536,95 @@
       <option name="project" value="LOCAL" />
       <updated>1728190294874</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="few updated">
+      <option name="closed" value="true" />
+      <created>1728190541505</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1728190541505</updated>
+    </task>
+    <task id="LOCAL-00040" summary="updated login page">
+      <option name="closed" value="true" />
+      <created>1728211347520</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1728211347520</updated>
+    </task>
+    <task id="LOCAL-00041" summary="add web.config file">
+      <option name="closed" value="true" />
+      <created>1728301356766</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1728301356766</updated>
+    </task>
+    <task id="LOCAL-00042" summary="modify index.js file">
+      <option name="closed" value="true" />
+      <created>1728303234348</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1728303234349</updated>
+    </task>
+    <task id="LOCAL-00043" summary="modify web.config file">
+      <option name="closed" value="true" />
+      <created>1728304316712</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1728304316713</updated>
+    </task>
+    <task id="LOCAL-00044" summary="modify web.config file">
+      <option name="closed" value="true" />
+      <created>1728304584814</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1728304584814</updated>
+    </task>
+    <task id="LOCAL-00045" summary="modify web.config file">
+      <option name="closed" value="true" />
+      <created>1728304651181</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1728304651181</updated>
+    </task>
+    <task id="LOCAL-00046" summary="modify index file">
+      <option name="closed" value="true" />
+      <created>1728305484364</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1728305484364</updated>
+    </task>
+    <task id="LOCAL-00047" summary="modify index file">
+      <option name="closed" value="true" />
+      <created>1728305955876</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1728305955877</updated>
+    </task>
+    <task id="LOCAL-00048" summary="modify web.config file">
+      <option name="closed" value="true" />
+      <created>1728306171919</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1728306171919</updated>
+    </task>
+    <task id="LOCAL-00049" summary="modify index file">
+      <option name="closed" value="true" />
+      <created>1728306379440</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1728306379441</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,11 +642,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add complaint history page" />
-    <MESSAGE value="add cookie file" />
-    <MESSAGE value="added new files" />
-    <MESSAGE value="add new files" />
-    <MESSAGE value="add a background job for calculate complaint remaining days" />
     <MESSAGE value="add form validation for change password page" />
     <MESSAGE value="add password change option" />
     <MESSAGE value="send code to email using nodemailer" />
@@ -573,7 +662,12 @@
     <MESSAGE value="update complaint view pages" />
     <MESSAGE value="updated" />
     <MESSAGE value="few updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="few updated" />
+    <MESSAGE value="updated login page" />
+    <MESSAGE value="add web.config file" />
+    <MESSAGE value="modify index.js file" />
+    <MESSAGE value="modify web.config file" />
+    <MESSAGE value="modify index file" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify index file" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

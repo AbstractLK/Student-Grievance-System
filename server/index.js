@@ -33,6 +33,9 @@ app.use('/user', userRoute);
 app.use('/task', taskRoute);
 app.use('/complaint', complaintRoute);
 app.use('/reset-password', userRoute);
+app.all('*', (req, res) => {
+    res.status(404).json({status: 404, message: "Page Not Found!"});
+});
 
 app.listen(PORT, () => {
     console.log(`${process.env.APP_NAME} started at port ${PORT}`);
