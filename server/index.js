@@ -34,7 +34,7 @@ app.use('/task', taskRoute);
 app.use('/complaint', complaintRoute);
 app.use('/reset-password', userRoute);
 app.all('*', (req, res) => {
-    res.status(404).json({status: 404, message: "Page Not Found!"});
+    res.send('Page Not Found');
 });
 
 app.listen(PORT, () => {
