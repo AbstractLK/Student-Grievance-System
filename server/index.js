@@ -9,6 +9,7 @@ const userRoute = require('./router/users');
 const taskRoute = require('./router/tasks');
 const complaintRoute = require('./router/complaint');
 const CLIENT_URL = process.env.CLIENT_URL;
+const PORT = process.env.APP_PORT || 3001; // Default to 3001 if PORT is not set
 
 const app = express();
 //app.use(cors());
@@ -33,6 +34,6 @@ app.use('/task', taskRoute);
 app.use('/complaint', complaintRoute);
 app.use('/reset-password', userRoute);
 
-app.listen(process.env.APP_PORT,()=>{
-    console.log(process.env.APP_NAME + ' started at port 3001');
-})
+app.listen(PORT, () => {
+    console.log(`${process.env.APP_NAME} started at port ${PORT}`);
+});
