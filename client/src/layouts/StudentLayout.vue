@@ -48,7 +48,7 @@ const items = ref([
 const email = ref('');
 const name = ref('');
 
-const changePassword = () => {
+const fetchUserName = () => {
   const token = getCookie("jwt");
   const decodedToken = jwtDecode(token);
   email.value = decodedToken.email;
@@ -57,7 +57,7 @@ const changePassword = () => {
 }
 
 onMounted(() => {
-  changePassword();
+  fetchUserName();
   // console.log(email.value, name.value);
 });
 

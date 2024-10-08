@@ -15,7 +15,8 @@ export default {
       email: '',
       pass: ""
     },
-    checkCookieInterval: null
+    checkCookieInterval: null,
+    visible: false,
 
   }),
   methods: {
@@ -34,6 +35,7 @@ export default {
             // alert("Successfully login");
             if (role == "admin" || role == "facultyAdmin" || role == "universityAdmin") await router.push('/admin');
             if (role == "student") await router.push('/student');
+            if (role == "superAdmin") await router.push('/super-admin');
           }
 
         })
@@ -83,8 +85,12 @@ export default {
             <v-text-field v-model="credential.email" density="comfortable" class="mb-2" clearable label="Email"
               variant="outlined"></v-text-field>
 
-            <v-text-field v-model="credential.pass" density="comfortable" variant="outlined" type="password" clearable
-              label="Password" placeholder="Enter your password"></v-text-field>
+            <v-text-field v-model="credential.pass" density="comfortable" variant="outlined" 
+              label="Password" placeholder="Enter your password" 
+              :append-inner-icon="visible ? 'mdi-eye': 'mdi-eye-off'"
+              @click:append-inner="visible = !visible"
+              :type = "visible? 'text': 'password'"
+            ></v-text-field>
 
             <v-btn variant="plain" size="small" class="mb-3 text-none" to="/auth/reset">
               <span class="text-amber-darken-4 ">Forget password?</span>

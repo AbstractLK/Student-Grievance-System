@@ -12,45 +12,6 @@ export default {
   data() {
     return {
       complaints: null,
-      // complains: [
-      //   {
-      //     number: 1,
-      //     regDate: '2024-06-30',
-      //     updateDate: '2024-06-30',
-      //     status: 'in progress',
-      //     action: 'View Details'
-      //   },
-      //   {
-      //     number: 2,
-      //     regDate: '2024-06-30',
-      //     updateDate: '2024-06-30',
-      //     status: 'in progress',
-      //     action: 'View Details'
-      //   },
-      //   {
-      //     number: 3,
-      //     regDate: '2024-06-30',
-      //     updateDate: '2024-06-30',
-      //     status: 'Closed',
-      //     action: 'View Details'
-      //   },
-      //   {
-      //     number: 4,
-      //     regDate: '2024-06-30',
-      //     updateDate: '2024-06-30',
-      //     status: 'in progress',
-      //     action: 'View Details'
-      //   },
-      //   {
-      //     number: 5,
-      //     regDate: '2024-06-30',
-      //     updateDate: '2024-06-30',
-      //     status: 'Closed',
-      //     action: 'View Details'
-      //   },
-      //
-      // ],
-
     }
   },
 

@@ -157,6 +157,7 @@ export default {
     </v-col>
   </v-row>
 
+  <!-- Chat box window -->
   <v-dialog v-model="chatDialog" max-width="550" scrollable>
     <v-card rounded="lg">
       <v-card-title class="d-flex justify-space-between align-center">
@@ -405,5 +406,8 @@ export default {
 <style scoped>
 .borderR {
   border-right: 1px solid rgba(0, 0, 0, .5);
+}
+.chat-box{
+  height: 300px;
 }
 </style>
