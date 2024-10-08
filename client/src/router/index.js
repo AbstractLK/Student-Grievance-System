@@ -133,6 +133,24 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/super-admin",
+    component: () => import("@/layouts/SuperAdminLayout.vue"),
+    children: [
+      {
+        path: "",
+        component: () => import("@/views/superAdmin/accounts.vue"),
+      },
+      {
+        path: "accounts",
+        component: () => import("@/views/superAdmin/accounts.vue"),
+      },
+      {
+        path: "add-account",
+        component: () => import("@/views/superAdmin/add-account.vue"),
+      },
+    ],
+  }
 ];
 
 const router = createRouter({

@@ -16,7 +16,7 @@ router.delete("/delete-user/:id", authMW, userController.userDelete);
 
 router.get(
   "/getAll",
-  [authMW, checkRoles([roles.student, roles.admin])],
+  [authMW, checkRoles([roles.student, roles.admin, roles.superAdmin])],
   userController.getAll
 );
 
