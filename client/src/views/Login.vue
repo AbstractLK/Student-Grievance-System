@@ -3,7 +3,7 @@
 import axios from "axios";
 import router from "@/router";
 // import {getCookie} from "../../utils/cookieUtils";
-const URL = import.meta.env.VITE_URL;
+const URL = 'https://sghs-backend.azurewebsites.net';
 
 
 export default {
@@ -77,7 +77,7 @@ export default {
         <v-card elevation="12" rounded="lg" class="mx-auto pa-12 py-8 " max-width="370px" max-height="420px">
           <div class="mb-8 text-center" style="color: #525252;">
             <h2 class="text-blue-grey" style="font-size: 25px; line-height: 90%">Student Grievance System </h2>
-            <h5 class="mt-1">Sign in to Continue</h5>
+            <h5 class="mt-1">Signn in to Continue</h5>
           </div>
 
           <v-form>
