@@ -11,8 +11,6 @@ async function registerUser(req, res) {
     }else {
         try {
             const savedUser = await userDB.insert(data);
-            // const accessToken = await token.generateAccessToken(savedUser._id, data.name, data.email, data.role, '2h');
-            // res.status(200).json({accessToken: accessToken, name: data.name, role:data.role});
             res.status(200).json({message: 'User created successfully', data: data});
             console.log('User created successfully');
         } catch (error) {

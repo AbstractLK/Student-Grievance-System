@@ -1,6 +1,6 @@
 const complaintModel = require('../models/complaintModel')
 async function insertComplaint(data, user) {
-    console.log(data);
+    // console.log(data);
     const complaint = {
         complainantEmail: user.email,
         remark: '',

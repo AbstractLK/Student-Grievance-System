@@ -55,7 +55,6 @@ export default {
     // }
 
     addToCookie(jwtToken) {
-      // console.log(jwtToken);
       // axios.defaults.headers.common['x-access-token'] = jwtToken;
       const expirationTime = new Date();
       expirationTime.setTime(expirationTime.getTime() + (1000 * 60 * 60 * 2)); // 1 hour expiration
