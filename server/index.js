@@ -26,8 +26,11 @@ app.use('/user', userRoute);
 app.use('/task', taskRoute);
 app.use('/complaint', complaintRoute);
 app.use('/reset-password', userRoute);
-app.all('*', (req, res) => {
-    res.send('Page Not Found');
+
+// Serve static assets if in azure production
+app.use(express.static("./client/dist"));
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => {
