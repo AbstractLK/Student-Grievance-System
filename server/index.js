@@ -28,10 +28,10 @@ app.use('/complaint', complaintRoute);
 app.use('/reset-password', userRoute);
 
 // Serve static assets if in azure production
-app.use(express.static("../client/dist"));
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
-});
+// app.use(express.static("../client/dist"));
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
+// });
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
